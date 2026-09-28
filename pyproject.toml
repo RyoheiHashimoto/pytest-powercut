@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pytest-powercut"
+version = "0.1.0"
+description = "Test that your files survive a power cut."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ryohei Hashimoto" }]
+keywords = ["pytest", "testing", "crash-consistency", "durability", "fsync", "power-loss", "atomic-write"]
+classifiers = [
+  "Framework :: Pytest",
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Testing",
+]
+dependencies = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/RyoheiHashimoto/pytest-powercut"
+Issues = "https://github.com/RyoheiHashimoto/pytest-powercut/issues"
+
+[project.entry-points.pytest11]
+powercut = "pytest_powercut.plugin"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pytest_powercut"]
